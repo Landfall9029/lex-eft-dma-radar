@@ -378,11 +378,11 @@ namespace eft_dma_radar.UI.Misc
         public ExpanderStatesConfig ExpanderStates { get; set; } = new();
 
         /// <summary>
-        /// Quest planner settings.
+        /// Mission planner planning weight settings.
         /// </summary>
-        [JsonPropertyName("questPlanner")]
+        [JsonPropertyName("missionPlanner")]
         [JsonInclude]
-        public QuestPlannerSettings QuestPlanner { get; set; } = new QuestPlannerSettings();
+        public MissionPlannerSettings MissionPlanner { get; set; } = new MissionPlannerSettings();
 
         /// <summary>
         /// Config Name.
