@@ -151,7 +151,7 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
             C("BtrController", [F("<BtrView>k__BackingField", "BtrView")]),
 
             // BTRView
-            C("BTRView", [F("turret"), F("_targetPosition"), F("_previousPosition")]),
+            C("BTRView", [F("turret"), F("_previousPosition")]),
 
             // BTRTurretView
             C("BTRTurretView", [F("_bot", "AttachedBot")]),
@@ -192,7 +192,7 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
 
             // ThermalVision
             C("ThermalVision", [
-                F("Material"), F("On"), F("IsNoisy"), F("IsFpsStuck"), F("IsMotionBlurred"),
+                F("_material", "Material"), F("On"), F("IsNoisy"), F("IsFpsStuck"), F("IsMotionBlurred"),
                 F("IsGlitch"), F("IsPixelated"), F("ChromaticAberrationThermalShift"),
                 F("UnsharpRadiusBlur"), F("UnsharpBias"),
             ]),
@@ -303,7 +303,7 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
 
             // ProceduralWeaponAnimation (main)
             C("ProceduralWeaponAnimation", [
-                F("ShotNeedsFovAdjustments"),
+                F("<ShotNeedsFovAdjustments>k__BackingField", "ShotNeedsFovAdjustments"),
                 F("Breath"),
                 F("PositionZeroSum"),
                 F("Shootingg"),
@@ -368,8 +368,8 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
 
             // ProfileInfo → PlayerInfo
             C("ProfileInfo", [
-                F("Nickname"), F("EntryPoint"), F("Side"), F("RegistrationDate"),
-                F("GroupId"), F("Settings"), F("MemberCategory"), F("Experience"),
+                F("Nickname"), F("EntryPoint"), F("<Side>k__BackingField", "Side"), F("RegistrationDate"),
+                F("GroupId"), F("<Settings>k__BackingField", "Settings"), F("MemberCategory"), F("_experience", "Experience"),
             ], cs: "PlayerInfo"),
 
             // SkillManager
@@ -377,7 +377,6 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
                 F("StrengthBuffJumpHeightInc"), F("StrengthBuffThrowDistanceInc"),
                 F("MagDrillsLoadSpeed"), F("MagDrillsUnloadSpeed"),
                 F("RaidLoadedAmmoAction"), F("RaidUnloadedAmmoAction"),
-                F("SpeedMultiplier"),
             ]),
 
             // FloatBuff → SkillValueContainer
@@ -405,7 +404,8 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
             C("FirearmController", [F("Fireport"), F("COI", "TotalCenterOfImpact"), F("WeaponLn")]),
 
             // ClientFirearmController (fields from ClientFirearmController + inherited FirearmController)
-            C("ClientFirearmController", [F("WeaponLn"), F("ShotIndex")]),
+            C("FirearmController", [F("WeaponLn")], cs: "ClientFirearmController"),
+            C("ClientFirearmController", [F("LastShotId", "ShotIndex")], cs: "ClientFirearmController"),
 
             // MovementContext
             C("MovementContext", [
@@ -444,7 +444,7 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
             C("Inventory", [F("Equipment"), F("QuestRaidItems"), F("QuestStashItems"), F("Stash")]),
 
             // Stash
-            C("Stash", [F("Grids")]),
+            C("Stash", [F("_grid", "Grids")]),
 
             // CompoundItem → Stash (Slots from CompoundItem, same output Stash)
             C("CompoundItem", [F("Slots")], cs: "Stash"),
@@ -457,7 +457,7 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
 
             // DogtagComponent
             C("DogtagComponent", [
-                F("Item"), F("GroupId"), F("AccountId"), F("ProfileId"), F("Nickname"),
+                F("GroupId"), F("AccountId"), F("ProfileId"), F("Nickname"),
                 F("Side"), F("Level"), F("Time"), F("Status"), F("KillerAccountId"),
                 F("KillerProfileId"), F("KillerName"), F("WeaponName"), F("CarriedByGroupMember"),
             ]),
@@ -494,7 +494,7 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
 
             // Item → LootItem
             C("Item", [
-                F("StackObjectsCount"), F("Version"), F("Components"), F("Template"), F("SpawnedInSession"),
+                F("StackObjectsCount"), F("Version"), F("Components"), F("<Template>k__BackingField", "Template"), F("<SpawnedInSession>k__BackingField", "SpawnedInSession"),
             ], cs: "LootItem"),
 
             // CompoundItem → LootItemMod
@@ -566,7 +566,7 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
             C("StackSlot", [F("_items"), F("MaxCount")]),
 
             // ItemTemplate
-            C("ItemTemplate", [F("Name"), F("ShortName"), F("_id"), F("Weight"), F("QuestItem")]),
+            C("ItemTemplate", [F("Name"), F("ShortName"), F("<_id>k__BackingField", "_id"), F("Weight"), F("QuestItem")]),
 
             // ModTemplate
             C("ModTemplate", [F("Velocity")]),
@@ -590,12 +590,12 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
             C("InventoryBlur", [F("_blurCount"), F("_upsampleTexDimension")]),
 
             // Physical
-            C("Physical", [
+            C("PhysicalBase", [
                 F("Overweight"), F("WalkOverweight"), F("WalkSpeedLimit"), F("Inertia"),
                 F("Stamina"), F("Oxygen"), F("BaseOverweightLimits"), F("SprintOverweightLimits"),
-                F("SprintWeightFactor"), F("PreviousWeight"), F("SprintAcceleration"), F("PreSprintAcceleration"),
-                F("_encumbered"), F("_overEncumbered"), F("SprintOverweight"), F("BerserkRestorationFactor"),
-            ]),
+                F("PreviousWeight"), F("SprintAcceleration"), F("PreSprintAcceleration"),
+                F("_encumbered"), F("_overEncumbered"), F("SprintOverweight"), F("<BerserkRestorationFactor>k__BackingField", "BerserkRestorationFactor"),
+            ], cs: "Physical"),
 
             // Stamina → PhysicalValue
             C("Stamina", [F("Current")], cs: "PhysicalValue"),
@@ -604,16 +604,16 @@ namespace eft_dma_radar.Tarkov.Unity.IL2CPP
             C("BreathEffector", [F("Intensity")]),
 
             // OpticCameraManager
-            C("OpticCameraManager", [F("Camera"), F("CurrentOpticSight")]),
+            C("OpticCameraManager", [F("<Camera>k__BackingField", "Camera"), F("<CurrentOpticSight>k__BackingField", "CurrentOpticSight")]),
 
             // GPUInstancerRuntimeData
             C("GPUInstancerRuntimeData", [F("instanceBounds")]),
 
             // CameraManager → EFTCameraManager
             C("CameraManager", [
-                F("OpticCameraManager"),
-                F("Camera"),
-                M("GetInstance", "GetInstance_RVA"),
+                F("<OpticCameraManager>k__BackingField", "OpticCameraManager"),
+                F("<Camera>k__BackingField", "Camera"),
+                M("get_Instance_RVA", "GetInstance_RVA"),
             ], cs: "EFTCameraManager"),
 
             // SightComponent

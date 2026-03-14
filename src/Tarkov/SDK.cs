@@ -122,7 +122,6 @@
 		public readonly partial struct BTRView
 		{
 			public const uint turret = 0x60;
-			public const uint _targetPosition = 0xAC;
 			public const uint _previousPosition = 0xB4; //_previousPosition
 		}
 		//public static class BTRTurretView
@@ -171,8 +170,8 @@
 		//public static class ThermalVision
 		public readonly partial struct ThermalVision
 		{
-			public const uint Material = 0xB8;
-			public const uint On = 0x20;
+			public const uint Material = 0xB8; //_material
+            public const uint On = 0x20;
 			public const uint IsNoisy = 0x21;
 			public const uint IsFpsStuck = 0x22;
 			public const uint IsMotionBlurred = 0x23;
@@ -300,7 +299,7 @@
 		//public static class ProceduralWeaponAnimation
         public readonly partial struct ProceduralWeaponAnimation
         {
-            public const uint ShotNeedsFovAdjustments = 0x433;
+            public const uint ShotNeedsFovAdjustments = 0x433; //_ShotNeedsFovAdjustments_k__BackingField
             public const uint Breath = 0x38;
             public const uint PositionZeroSum = 0x31C;
             public const uint Shootingg = 0x58;
@@ -396,13 +395,13 @@
 		{
 			public const uint Nickname = 0x10;
 			public const uint EntryPoint = 0x28;
-			public const uint Side = 0x48;
-			public const uint RegistrationDate = 0x4C;
+			public const uint Side = 0x48; //_Side_k__BackingField
+            public const uint RegistrationDate = 0x4C;
 			public const uint GroupId = 0x50;
-			public const uint Settings = 0x78;
-			public const uint MemberCategory = 0x80;
-			public const uint Experience = 0x84;
-		}
+			public const uint Settings = 0x78; //_Settings_k__BackingField
+            public const uint MemberCategory = 0x80;
+			public const uint Experience = 0x84; //_experience
+        }
 		//public static class SkillManager
 		public readonly partial struct SkillManager
 		{
@@ -412,7 +411,6 @@
 			public const uint MagDrillsUnloadSpeed = 0x188;
     		public const uint RaidLoadedAmmoAction   = 0x480;
     		public const uint RaidUnloadedAmmoAction = 0x488;
-    		public const uint SpeedMultiplier = 0x30;
 		}
 		//public static class FloatBuff
 		public readonly partial struct SkillValueContainer
@@ -460,8 +458,8 @@
 		public readonly partial struct ClientFirearmController
 		{
 			public const uint WeaponLn = 0x100; //from FirearmController
-			public const uint ShotIndex = 0x438;
-		}
+			public const uint ShotIndex = 0x438; //LastShotId
+        }
 		//public static class MovementContext
         public readonly partial struct MovementContext
         {
@@ -510,8 +508,8 @@
 		//public static class Stash + ? might be using public static class CompoundItem
 		public readonly partial struct Stash
 		{
-			public const uint Grids = 0x98;
-			public const uint Slots = 0x80; //from CompoundItem
+			public const uint Grids = 0x98; //_grid
+            public const uint Slots = 0x80; //from CompoundItem
 		}
 		//public static class CompoundItem
 		public readonly partial struct Equipment
@@ -527,7 +525,6 @@
 		//public static class DogtagComponent
 		public readonly partial struct DogtagComponent
 		{
-			public const uint Item = 0x10;
 			public const uint GroupId = 0x18;
 			public const uint AccountId = 0x20;
 			public const uint ProfileId = 0x28;
@@ -587,9 +584,9 @@
 			public const uint StackObjectsCount = 0x24;
 			public const uint Version = 0x28;
     		public const uint Components = 0x40;
-			public const uint Template = 0x60;
-			public const uint SpawnedInSession = 0x68;
-		}
+			public const uint Template = 0x60; //_Template_k__BackingField
+            public const uint SpawnedInSession = 0x68; //_SpawnedInSession_k__BackingField
+        }
 		//public static class CompoundItem
 		public readonly partial struct LootItemMod
 		{
@@ -718,8 +715,8 @@
 		{
 			public const uint Name = 0x10;
 			public const uint ShortName = 0x18;
-			public const uint _id = 0xE0;
-			public const uint Weight = 0xB0;
+			public const uint _id = 0xE0; //__id_k__BackingField
+            public const uint Weight = 0xB0;
 			public const uint QuestItem = 0x34;
 		}
 		//public static class ModTemplate
@@ -759,7 +756,7 @@
             public const uint _blurCount = 0x38;
             public const uint _upsampleTexDimension = 0x30;
         }
-		//public static class Physical
+        // public static class PhysicalBase
         public readonly partial struct Physical
         {
             public const uint Overweight = 0x1C;
@@ -770,14 +767,14 @@
             public const uint Oxygen = 0x78;
             public const uint BaseOverweightLimits = 0xAC;
             public const uint SprintOverweightLimits = 0xC0;
-			public const uint SprintWeightFactor = 0x104;
+			//public const uint SprintWeightFactor = 0x104;
             public const uint PreviousWeight = 0xD4;
             public const uint SprintAcceleration = 0x114;
             public const uint PreSprintAcceleration = 0x118;
 			public const uint _encumbered = 0x11C;
             public const uint _overEncumbered = 0x11D;
 			public const uint SprintOverweight = 0xD0;
-			public const uint BerserkRestorationFactor = 0x110;
+			public const uint BerserkRestorationFactor = 0x110; //_BerserkRestorationFactor_k__BackingField
         }
 		//public static class Stamina
         public readonly partial struct PhysicalValue //Class: .Stamina
@@ -792,9 +789,9 @@
 		//public static class OpticCameraManager
 		public readonly partial struct OpticCameraManager
 		{
-			public const uint Camera = 0x70;
-			public const uint CurrentOpticSight = 0x78;
-		}
+			public const uint Camera = 0x70; //_Camera_k__BackingField
+            public const uint CurrentOpticSight = 0x78; //_CurrentOpticSight_k__BackingField
+        }
 		//public static class GPUInstancerRuntimeData
 		public readonly partial struct GPUInstancerRuntimeData
         {
@@ -803,9 +800,9 @@
 		//public static class CameraManager
 		public readonly partial struct EFTCameraManager
 		{
-			public const uint OpticCameraManager = 0x10;
-			public const uint Camera = 0x60;
-            public const uint GetInstance_RVA = 0x2CF8AB0;
+			public const uint OpticCameraManager = 0x10; //_OpticCameraManager_k__BackingField
+            public const uint Camera = 0x60; //_Camera_k__BackingField
+            public const uint GetInstance_RVA = 0x2CF8AB0; //get_Instance_RVA
             public const uint CameraDerefOffset = 0x10;
 		}
 		//public static class SightComponent
