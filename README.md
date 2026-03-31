@@ -4,6 +4,10 @@
 
 Please note that I am not a professional coder and will never claim to be. I just vibe code and im able to read codes but not make it myself. Official improvement from the devs will be needed.
 
+## Whats next (for now)
+- French language support and language selector
+- New features soon
+
 ## How do I start using this?
 1. Download & extract the solution
 2. Open solution with visual studio
