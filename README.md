@@ -1,5 +1,9 @@
 # Lex's EFT DMA Radar Fork
 
+## I will try to add some tweaks I find useful and push it to the main repo and pray that they add it. For now I started with the custom font uploader/remover button in the settings (gear icon)
+
+Please note that I am not a professional coder and will never claim to be. I just vibe code and read im able to read codes but not make it myself. Official improvement from the devs will be needed.
+
 ## How do I start using this?
 1. Download & extract the solution
 2. Open solution with visual studio
@@ -38,3 +42,6 @@
   - This is **NOT** for feature requests or suggestions.
   - Misuse of the Issues category will result in the privilege being revoked for that user.
   - If misuse is rampant, the ability to open Issues may be disabled for all users..
+
+
+# This post was made for educational reasons only we do not condone any use of this that breaks third party EULAs
